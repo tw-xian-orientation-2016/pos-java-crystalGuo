@@ -28,6 +28,11 @@ public class CartItem {
         return count;
     }
 
+    public void setCount(double count) {
+        this.count = count;
+    }
+
+
     public void setPromotionType(String promotionType) {
         this.promotionType = promotionType;
     }
