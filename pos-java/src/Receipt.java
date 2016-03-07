@@ -14,6 +14,24 @@ public class Receipt {
         return receiptItems;
     }
 
+    public double getFinalPrice() {
+
+        for (ReceiptItem receiptItem: receiptItems) {
+            finalPrice += receiptItem.getTotalPrice();
+        }
+
+        return finalPrice;
+    }
+
+    public double getFinalSaved() {
+
+        for (ReceiptItem receiptItem: receiptItems) {
+            finalSaved += receiptItem.getSavedPrice();
+        }
+
+        return finalSaved;
+    }
+
     
 
 }
