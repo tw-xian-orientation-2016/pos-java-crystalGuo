@@ -49,13 +49,13 @@ public class PosProcess {
         return receiptItems.toArray(new ReceiptItem[receiptItems.size()]);
     }
 
-    public Receipt getReceipt(ReceiptItem[] receiptItems) {
+    public String getReceipt(ReceiptItem[] receiptItems) {
 
         Receipt receipt = new Receipt(receiptItems);
-        return receipt;
+        return receipt.getReceipt();
     }
 
-    public void printReceipt(Receipt receipt) {
-        System.out.println(receipt.getReceipt());
+    public void printReceipt(String receipt) {
+        System.out.println(receipt);
     }
 }
