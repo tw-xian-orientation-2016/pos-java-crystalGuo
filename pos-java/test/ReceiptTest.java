@@ -19,4 +19,20 @@ public class ReceiptTest {
 
         assertThat(receipt.getFinalPrice(), is(51.00));
     }
+
+    @Test
+    public void when_get_receiptItems_then_return_right_finalSaved() {
+
+        Item[] allItems = Fixture.loasAllItems();
+        ReceiptItem[] receiptItems = {
+                new ReceiptItem(new CartItem("ITEM000001", 5.00, allItems)),
+                new ReceiptItem(new CartItem("ITEM000003", 2.00, allItems)),
+                new ReceiptItem(new CartItem("ITEM000005", 3.00, allItems))
+        };
+
+        Receipt receipt = new Receipt(receiptItems);
+
+        assertThat(receipt.getFinalSaved(), is(7.50));
+    }
+
 }
