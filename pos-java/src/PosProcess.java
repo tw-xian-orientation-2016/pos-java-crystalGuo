@@ -49,5 +49,11 @@ public class PosProcess {
         return receiptItems.toArray(new ReceiptItem[receiptItems.size()]);
     }
 
+    public Receipt getReceipt(ReceiptItem[] receiptItems) {
+
+        Receipt receipt = new Receipt(receiptItems);
+        return receipt;
+    }
+
     
 }
