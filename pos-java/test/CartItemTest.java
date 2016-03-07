@@ -16,4 +16,13 @@ public class CartItemTest {
         assertEquals(item.getUnit(), cartItem.getItem().getUnit());
         assertThat(item.getPrice() == cartItem.getItem().getPrice(), is(true));
     }
+
+    @Test
+    public void when_get_barcode_then_return_right_promotion_type() throws Exception {
+
+        CartItem cartItem = new CartItem("ITEM000001", 5, Fixture.loasAllItems());
+
+        assertEquals("BUY_TWO_GET_ONE_FREE", cartItem.getPromotionType(cartItem.getItem().getBarcode(),
+                Fixture.loadAllPromotions()));
+    }
 }
