@@ -35,4 +35,19 @@ public class PosProcess {
 
         return null;
     }
+
+    public ReceiptItem[] getReceiptItems(CartItem[] cartItems) {
+
+        ArrayList<ReceiptItem> receiptItems = new ArrayList<>();
+
+        for (int i = 0; i < cartItems.length; i++) {
+
+            ReceiptItem receiptItem = new ReceiptItem(cartItems[i]);
+            receiptItems.add(receiptItem);
+        }
+
+        return receiptItems.toArray(new ReceiptItem[receiptItems.size()]);
+    }
+
+    
 }
