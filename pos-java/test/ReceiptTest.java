@@ -1,13 +1,15 @@
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.*;
 
 public class ReceiptTest {
+    
+    private Receipt receipt;
 
-    @Test
-    public void when_get_receiptItems_then_return_right_finalPrice() {
-
+    @Before
+    public void setUp() {
         Item[] allItems = Fixture.loasAllItems();
         ReceiptItem[] receiptItems = {
                 new ReceiptItem(new CartItem("ITEM000001", 5.00, allItems)),
@@ -15,7 +17,12 @@ public class ReceiptTest {
                 new ReceiptItem(new CartItem("ITEM000005", 3.00, allItems))
         };
 
-        Receipt receipt = new Receipt(receiptItems);
+        receipt = new Receipt(receiptItems);
+
+    }
+
+    @Test
+    public void when_get_receiptItems_then_return_right_finalPrice() {
 
         assertThat(receipt.getFinalPrice(), is(51.00));
     }
@@ -23,29 +30,11 @@ public class ReceiptTest {
     @Test
     public void when_get_receiptItems_then_return_right_finalSaved() {
 
-        Item[] allItems = Fixture.loasAllItems();
-        ReceiptItem[] receiptItems = {
-                new ReceiptItem(new CartItem("ITEM000001", 5.00, allItems)),
-                new ReceiptItem(new CartItem("ITEM000003", 2.00, allItems)),
-                new ReceiptItem(new CartItem("ITEM000005", 3.00, allItems))
-        };
-
-        Receipt receipt = new Receipt(receiptItems);
-
         assertThat(receipt.getFinalSaved(), is(7.50));
     }
 
     @Test
     public void when_get_receiptItems_then_return_right_string_recript() {
-
-        Item[] allItems = Fixture.loasAllItems();
-        ReceiptItem[] receiptItems = {
-                new ReceiptItem(new CartItem("ITEM000001", 5.00, allItems)),
-                new ReceiptItem(new CartItem("ITEM000003", 2.00, allItems)),
-                new ReceiptItem(new CartItem("ITEM000005", 3.00, allItems))
-        };
-
-        Receipt receipt = new Receipt(receiptItems);
 
         String receiptExpected =
                 "***<没钱赚商店>收据***\n" +
