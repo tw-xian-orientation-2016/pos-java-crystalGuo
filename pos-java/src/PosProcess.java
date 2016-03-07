@@ -55,5 +55,7 @@ public class PosProcess {
         return receipt;
     }
 
-    
+    public void printReceipt(Receipt receipt) {
+        System.out.println(receipt.getReceipt());
+    }
 }
