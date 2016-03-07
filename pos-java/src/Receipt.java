@@ -50,7 +50,7 @@ public class Receipt {
                 "节省：" + formatPrice(getFinalSaved()) + "(元)\n" +
                         "**********************";
 
-        return receipt;
+        return receipt.toString();
 
     }
 
