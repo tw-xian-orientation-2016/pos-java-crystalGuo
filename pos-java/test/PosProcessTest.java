@@ -15,4 +15,19 @@ public class PosProcessTest {
 
         assertThat(cartItems.length, is(3));
     }
+
+    @Test
+    public  void when_get_cartItems_then_should_return_receiptItems_array() {
+
+        PosProcess posProcess = new PosProcess();
+        Item[] allItems = Fixture.loasAllItems();
+
+        CartItem[] cartItems = {
+                new CartItem("ITEM000001", 5.00, allItems),
+                new CartItem("ITEM000003", 2.00, allItems),
+                new CartItem("ITEM000005", 3.00, allItems)
+        };
+
+        assertThat(posProcess.getReceiptItems(cartItems).length, is(3));
+    }
 }
